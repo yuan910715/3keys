@@ -9,6 +9,8 @@ WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework
 
 #硬件
 
+感谢phantomR 
+
 原理图：
 ![yuanlitu](https://github.com/yuan910715/3keys/blob/main/pics/yuanlitu.png)
 
@@ -27,3 +29,7 @@ pcb4：
 pcb5：
 ![pcb5](https://github.com/yuan910715/3keys/blob/main/pics/pcb5.png)
 
+#改键
+
+改键程序：
+![gaijian](https://github.com/yuan910715/3keys/blob/main/pics/gaijian.png)
