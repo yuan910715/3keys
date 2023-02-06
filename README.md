@@ -32,4 +32,4 @@ pcb5：
 #改键
 
 改键程序：
-![gaijian1](https://github.com/yuan910715/3keys/blob/main/pics/gaijian1.png)
+![gaijian2](https://github.com/yuan910715/3keys/blob/main/pics/gaijian2.png)
