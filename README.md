@@ -281,7 +281,7 @@ pcb5：
 
 ![4](https://github.com/yuan910715/3keys/blob/main/pics/4.jpg)
 
-![5](https://github.com/yuan910715/3keys/blob/main/pics/5.jpg)
+![5_1](https://github.com/yuan910715/3keys/blob/main/pics/5_1.jpg)
 
 ![6](https://github.com/yuan910715/3keys/blob/main/pics/6.jpg)
 
