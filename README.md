@@ -7,6 +7,8 @@ ch552g目录下为 键盘程序源码。开发环境参考https://github.com/Deq
 
 WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework 4.0开发
 
+![0](https://github.com/yuan910715/3keys/blob/main/pics/0.png)
+
 # 软件
 
 特点
@@ -270,4 +272,17 @@ pcb4：
 pcb5：
 ![pcb5](https://github.com/yuan910715/3keys/blob/main/pics/pcb5.png)
 
+黑色版本 有小灯 因为效果不好 板子上已经把小灯删了
+![1](https://github.com/yuan910715/3keys/blob/main/pics/1.png)
+
+![2](https://github.com/yuan910715/3keys/blob/main/pics/2.png)
+
+![3](https://github.com/yuan910715/3keys/blob/main/pics/3.png)
+
+![4](https://github.com/yuan910715/3keys/blob/main/pics/4.png)
+
+![5](https://github.com/yuan910715/3keys/blob/main/pics/5.png)
+
+![0](https://github.com/yuan910715/3keys/blob/main/pics/0.png)
+![6](https://github.com/yuan910715/3keys/blob/main/pics/6.png)
 
