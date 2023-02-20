@@ -256,7 +256,7 @@ __code uint16_t Prod_Des[]={                                //Produce String Des
 
 # 硬件
 
-感谢phantomR ，我把小灯删了，Type C换成了0.58元的便宜版本。 硬件只需2个100uf电容(0603) 一个CH552G 一个typeC母座(优信0.58那个有柱16p) 一个20k欧电阻 一个下载开关(不焊也行我就没焊 CH552G首次自动进写入模式 后续要进就用镊子短接)
+感谢phantomR ，我把小灯删了，Type C换成了0.58元的便宜版本。 硬件只需2个100nf电容(0603) 一个CH552G 一个typeC母座(优信0.58那个有柱16p) 一个20k欧电阻 一个下载开关(不焊也行我就没焊 CH552G首次自动进写入模式 后续要进就用镊子短接)
 
 硬件开源地址
 https://oshwhub.com/inramento/3jian-CVxiao-jian-pan
