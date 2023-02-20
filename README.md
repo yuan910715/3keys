@@ -3,6 +3,10 @@
 
 你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可。 3 key tools.exe为改键程序,windows下使用 需有.Net framework 4.0
 
+可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键
+
+![web](https://github.com/yuan910715/3keys/blob/main/pics/web.jpg)
+
 ch552g目录下为 键盘程序源码。开发环境参考https://github.com/DeqingSun/ch55xduino 感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/112
 
 WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework 4.0开发
