@@ -235,7 +235,7 @@ bool button1Press = !digitalRead(BUTTON1_PIN);
 
 改键程序代码不再详细解析, 原理为串口和键盘通讯 发送0x02 0x03查询键位值 , 发送
 ```
-0x02 key1 key2 key3 key1func key2func key2func key1f key2f key3c key1string(30位) key2string(30位) key3string(30位) 0x03
+0x02 key1 key2 key3 key1func key2func key2func key1f key2f key3c key1string(30字节) key2string(30字节) key3string(30字节) 0x03
 ```
 设置键位值
 
