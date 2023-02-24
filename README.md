@@ -3,7 +3,7 @@
 
 你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可。 3 key tools.exe为改键程序,windows下使用 需有.Net framework 4.0
 
-可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键
+可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键。 3key-web目录为web改键源码 使用Vue + Element UI开发
 
 ![web](https://github.com/yuan910715/3keys/blob/main/pics/web.jpg)
 
