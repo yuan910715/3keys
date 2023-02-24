@@ -1,7 +1,7 @@
 # 3keys
 一个CH552制作的三键小键盘 CV工程师键盘
 
-视频介绍https://www.bilibili.com/video/BV1M84y1n7r1/?vd_source=2537125dfce0f771c3321fe86e693da6
+视频介绍https://www.bilibili.com/video/BV1M84y1n7r1
 
 CH552芯片是一款兼容MCS51 指令集的增强型E8051内核单片机，其79%的指令是单字节单周期指令，平均指令速度比标准MCS51快8～15 倍。
 CH552 支持最高24MHz 系统主频，内置16K 程序存储器ROM 和256 字节内部iRAM 以及1K 字节片内xRAM，xRAM 支持DMA直接内存存取。
