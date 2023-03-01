@@ -102,6 +102,12 @@
       </el-row>
       <el-row>
         <img src="./assets/key2.png">
+      </el-row>
+      <el-row>
+        项目软硬件全部开源
+      </el-row>
+      <el-row>
+        <a href="https://github.com/yuan910715">https://github.com/yuan910715</a>
       </el-row> 
     </div>
   </div>
