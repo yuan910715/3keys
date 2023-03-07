@@ -18,7 +18,7 @@
         </el-radio-group>
       </el-row>
       <el-row>
-        <el-select v-model="key1funcselectvalue" placeholder="请选择" v-if="key1funcselectshow">
+        <el-select v-model="key1funcselectvalue" placeholder="请选择" v-if="key1funcselectshow" style="width:280px">
           <el-option
             v-for="item in key1funcoptions"
             :key="item.value"
@@ -26,6 +26,7 @@
             :value="item.value">
           </el-option>
         </el-select>
+        <label v-if="key1labelshow">+</label>
         <el-select v-model="key1mediaselectvalue" placeholder="请选择" v-if="key1mediaselectshow" style="width:400px">
           <el-option
             v-for="item in key1mediaoptions"
@@ -48,7 +49,7 @@
         </el-radio-group>
       </el-row>
       <el-row>
-        <el-select v-model="key2funcselectvalue" placeholder="请选择" v-if="key2funcselectshow">
+        <el-select v-model="key2funcselectvalue" placeholder="请选择" v-if="key2funcselectshow" style="width:280px">
           <el-option
             v-for="item in key2funcoptions"
             :key="item.value"
@@ -56,6 +57,7 @@
             :value="item.value">
           </el-option>
         </el-select>
+        <label v-if="key2labelshow">+</label>
         <el-select v-model="key2mediaselectvalue" placeholder="请选择" v-if="key2mediaselectshow" style="width:400px">
           <el-option
             v-for="item in key2mediaoptions"
@@ -78,7 +80,7 @@
         </el-radio-group>
       </el-row>
       <el-row>
-        <el-select v-model="key3funcselectvalue" placeholder="请选择" v-if="key3funcselectshow">
+        <el-select v-model="key3funcselectvalue" placeholder="请选择" v-if="key3funcselectshow" style="width:280px">
           <el-option
             v-for="item in key3funcoptions"
             :key="item.value"
@@ -86,6 +88,7 @@
             :value="item.value">
           </el-option>
         </el-select>
+        <label v-if="key3labelshow">+</label>
         <el-select v-model="key3mediaselectvalue" placeholder="请选择" v-if="key3mediaselectshow" style="width:400px">
           <el-option
             v-for="item in key3mediaoptions"
@@ -123,12 +126,14 @@ export default {
           this.key1funcselectshow = false;
           this.key1mediaselectshow = false;
           this.key1input2show = false;
+          this.key1labelshow = false;
           break;
         case 2://function
           this.key1input1show = false;
           this.key1funcselectshow = true;
           this.key1mediaselectshow = false;
           this.key1input2show = false;
+          this.key1labelshow = false;
           this.key1funcoptions.splice(0,this.key1funcoptions.length);
           for(var i=0;i<this.functionkeys.length;i++){
             this.key1funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
@@ -139,6 +144,7 @@ export default {
           this.key1funcselectshow = false;
           this.key1mediaselectshow = true;
           this.key1input2show = false;
+          this.key1labelshow = false;
           this.key1mediaoptions.splice(0,this.key1mediaoptions.length);
           for(var i=0;i<this.mediakeys.length;i++){
             this.key1mediaoptions.push({value:this.mediakeyvalues[i],label:this.mediakeys[i]});
@@ -149,6 +155,7 @@ export default {
           this.key1funcselectshow = true;
           this.key1mediaselectshow = false;
           this.key1input2show = false;
+          this.key1labelshow = true;
           this.key1funcoptions.splice(0,this.key1funcoptions.length);
           for(var i=0;i<this.functionkeys.length;i++){
             this.key1funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
@@ -159,12 +166,14 @@ export default {
           this.key1funcselectshow = false;
           this.key1mediaselectshow = false;
           this.key1input2show = true;
+          this.key1labelshow = false;
           break;
         default://none
           this.key1input1show = false;
           this.key1funcselectshow = false;
           this.key1mediaselectshow = false;
           this.key1input2show = false;
+          this.key1labelshow = false;
           break;        
       }
  
@@ -176,12 +185,14 @@ export default {
           this.key2funcselectshow = false;
           this.key2mediaselectshow = false;
           this.key2input2show = false;
+          this.key2labelshow = false;
           break;
         case 2://function
           this.key2input1show = false;
           this.key2funcselectshow = true;
           this.key2mediaselectshow = false;
           this.key2input2show = false;
+          this.key2labelshow = false;
           this.key2funcoptions.splice(0,this.key2funcoptions.length);
           for(var i=0;i<this.functionkeys.length;i++){
             this.key2funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
@@ -192,6 +203,7 @@ export default {
           this.key2funcselectshow = false;
           this.key2mediaselectshow = true;
           this.key2input2show = false;
+          this.key2labelshow = false;
           this.key2mediaoptions.splice(0,this.key2mediaoptions.length);
           for(var i=0;i<this.mediakeys.length;i++){
             this.key2mediaoptions.push({value:this.mediakeyvalues[i],label:this.mediakeys[i]});
@@ -202,6 +214,7 @@ export default {
           this.key2funcselectshow = true;
           this.key2mediaselectshow = false;
           this.key2input2show = false;
+          this.key2labelshow = true;
           this.key2funcoptions.splice(0,this.key2funcoptions.length);
           for(var i=0;i<this.functionkeys.length;i++){
             this.key2funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
@@ -212,12 +225,14 @@ export default {
           this.key2funcselectshow = false;
           this.key2mediaselectshow = false;
           this.key2input2show = true;
+          this.key2labelshow = false;
           break;
         default://none
           this.key2input1show = false;
           this.key2funcselectshow = false;
           this.key2mediaselectshow = false;
           this.key2input2show = false;
+          this.key2labelshow = false;
           break;        
       }
  
@@ -229,12 +244,14 @@ export default {
           this.key3funcselectshow = false;
           this.key3mediaselectshow = false;
           this.key3input2show = false;
+          this.key3labelshow = false;
           break;
         case 2://function
           this.key3input1show = false;
           this.key3funcselectshow = true;
           this.key3mediaselectshow = false;
           this.key3input2show = false;
+          this.key3labelshow = false;
           this.key3funcoptions.splice(0,this.key3funcoptions.length);
           for(var i=0;i<this.functionkeys.length;i++){
             this.key3funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
@@ -245,6 +262,7 @@ export default {
           this.key3funcselectshow = false;
           this.key3mediaselectshow = true;
           this.key3input2show = false;
+          this.key3labelshow = false;
           this.key3mediaoptions.splice(0,this.key3mediaoptions.length);
           for(var i=0;i<this.mediakeys.length;i++){
             this.key3mediaoptions.push({value:this.mediakeyvalues[i],label:this.mediakeys[i]});
@@ -255,6 +273,7 @@ export default {
           this.key3funcselectshow = true;
           this.key3mediaselectshow = false;
           this.key3input2show = false;
+          this.key3labelshow = true;
           this.key3funcoptions.splice(0,this.key3funcoptions.length);
           for(var i=0;i<this.functionkeys.length;i++){
             this.key3funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
@@ -265,12 +284,14 @@ export default {
           this.key3funcselectshow = false;
           this.key3mediaselectshow = false;
           this.key3input2show = true;
+          this.key3labelshow = false;
           break;
         default://none
           this.key3input1show = false;
           this.key3funcselectshow = false;
           this.key3mediaselectshow = false;
           this.key3input2show = false;
+          this.key3labelshow = false;
           break;        
       }
  
@@ -826,6 +847,9 @@ export default {
       key3funcoptions: [],
       key3funcselectvalue: '',
       key3mediaoptions: [],
+      key1labelshow:false,
+      key2labelshow:false,
+      key3labelshow:false,
     }
   }
 }
