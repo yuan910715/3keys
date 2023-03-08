@@ -271,6 +271,16 @@ https://oshwhub.com/inramento/3jian-CVxiao-jian-pan
 原理图：
 ![yuanlitu](https://github.com/yuan910715/3keys/blob/main/pics/yuanlitu.png)
 
+2023.3.9更新 V3.0版本 新增了R2 R3 两个5.1K电阻 用于C TO C线 如果不焊接这两个电阻 将只能使用 A TO C线   加大了TYPE C焊盘 降低焊接难度
+v3_1：
+![v3_1](https://github.com/yuan910715/3keys/blob/main/pics/V3_1.jpg)
+
+v3_2：
+![v3_2](https://github.com/yuan910715/3keys/blob/main/pics/V3_2.jpg)
+
+v3_3：
+![v3_3](https://github.com/yuan910715/3keys/blob/main/pics/V3_3.png)
+
 pcb1：
 ![pcb1](https://github.com/yuan910715/3keys/blob/main/pics/pcb1.png)
 
