@@ -25,6 +25,8 @@ WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework
 - 可自定义按键，有改键程序，可以是普通按键 功能按键 多媒体按键 组合键 输入字符串
 - 每个键位的设置可以记忆在硬件内 换机器也可正常使用
 
+## 2023.4.25 软件更新为threekey_v4.1.hex 修复了windows在刚连接键盘就立刻按键的情形 按键失效问题  感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/132
+
 ## 2023.3.27 软件更新为threekey_v4.hex 修改组合键逻辑 最多支持5键组合 新增三键同时按下逻辑 web改键已同步更新，windows改键程序已废弃，若在无外网环境无法访问web改键 可本地chrome浏览器打开3key-web里的index.html修改按键 程序也有所更新 以下代码解析非最新代码 请自行比对代码
 
 代码解析： threekey.ino中 ,
