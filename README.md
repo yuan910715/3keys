@@ -7,9 +7,11 @@ CH552芯片是一款兼容MCS51 指令集的增强型E8051内核单片机，其7
 CH552 支持最高24MHz 系统主频，内置16K 程序存储器ROM 和256 字节内部iRAM 以及1K 字节片内xRAM，xRAM 支持DMA直接内存存取。
 CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信号捕捉及PWM、双异步串口、SPI、USB设备控制器和全速收发器、USB type-C等功能模块。
 
-你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可。 3 key tools.exe为改键程序,windows下使用 需有.Net framework 4.0
+你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可。 3 key tools.exe为改键程序,windows下使用 需有.Net framework 4.0  windows改键已废弃 请使用web改键
 
 可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键。 3key-web目录为web改键源码 使用Vue + Element UI开发
+
+部分Win7需要装驱动 请自行搜索win7万能键盘驱动安装
 
 ![web](https://github.com/yuan910715/3keys/blob/main/pics/web.jpg)
 
