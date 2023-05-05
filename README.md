@@ -7,7 +7,7 @@ CH552芯片是一款兼容MCS51 指令集的增强型E8051内核单片机，其7
 CH552 支持最高24MHz 系统主频，内置16K 程序存储器ROM 和256 字节内部iRAM 以及1K 字节片内xRAM，xRAM 支持DMA直接内存存取。
 CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信号捕捉及PWM、双异步串口、SPI、USB设备控制器和全速收发器、USB type-C等功能模块。
 
-你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可 烧录教程https://topyuan.top/3key/howtoupdate。 3 key tools.exe为改键程序,windows下使用 需有.Net framework 4.0  windows改键已废弃 请使用web改键
+你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可 烧录教程https://topyuan.top/3key/howtoupdate
 
 可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键。 3key-web目录为web改键源码 使用Vue + Element UI开发
 
@@ -17,14 +17,14 @@ CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信
 
 ch552g目录下为 键盘程序源码。开发环境参考https://github.com/DeqingSun/ch55xduino 感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/112
 
-~~WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework 4.0开发~~ windows改键程序已废弃 请使用web改键
+~~WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework 4.0开发~~  windows改键程序已废弃 请使用web改键
 
 ![0](https://github.com/yuan910715/3keys/blob/main/pics/0.jpg)
 
 # 软件
 
 特点
-- 可自定义按键，有改键程序，可以是普通按键 功能按键 多媒体按键 组合键 输入字符串
+- 可自定义按键，有改键程序，可以是普通按键 功能按键 多媒体按键 组合键 输入字符串 模拟鼠标
 - 每个键位的设置可以记忆在硬件内 换机器也可正常使用
 
 ## 2023.5.4 软件更新为threekey_v5.0.hex 新增鼠标设置
@@ -242,7 +242,7 @@ bool button1Press = !digitalRead(BUTTON1_PIN);
   }
 ```
 
-改键程序：
+改键程序： 已废弃
 
 ![gaijian2](https://github.com/yuan910715/3keys/blob/main/pics/gaijian2.png)
 
@@ -275,7 +275,7 @@ __code uint16_t Prod_Des[]={                                //Produce String Des
 https://oshwhub.com/inramento/3jian-CVxiao-jian-pan
 
 
-原理图：
+原理图： 非最新 最新增加了两个cc 5.1k电阻用于识别c to c线 请在开源广场自行查看
 ![yuanlitu](https://github.com/yuan910715/3keys/blob/main/pics/yuanlitu.png)
 
 2023.3.9更新 V3.0版本 新增了R2 R3 两个5.1K电阻 用于C TO C线 如果不焊接这两个电阻 将只能使用 A TO C线   加大了TYPE C焊盘 降低焊接难度
