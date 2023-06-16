@@ -27,6 +27,8 @@ ch552g目录下为 键盘程序源码。开发环境参考https://github.com/Deq
 - 可自定义按键，有改键程序，可以是普通按键 功能按键 多媒体按键 组合键 输入字符串 模拟鼠标
 - 每个键位的设置可以记忆在硬件内 换机器也可正常使用
 
+## 2023.6.16 软件更新为threekey_v5.1.hex 修复Key2字符串记忆错乱问题
+
 ## 2023.5.4 软件更新为threekey_v5.0.hex 新增鼠标设置
 
 ## 2023.4.25 软件更新为threekey_v4.1.hex 修复了windows在刚连接键盘就立刻按键的情形 按键失效问题  感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/132
