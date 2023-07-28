@@ -246,7 +246,7 @@ bool button1Press = !digitalRead(BUTTON1_PIN);
 
 改键程序： 已废弃
 
-![gaijian2](https://github.com/yuan910715/3keys/blob/main/pics/gaijian2.png)
+![gaijian2](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/gaijian2.png)
 
 改键程序代码不再详细解析, 原理为串口和键盘通讯 发送0x02 0x03查询键位值 , 发送
 ```
@@ -260,7 +260,7 @@ bool button1Press = !digitalRead(BUTTON1_PIN);
 ```
 
 USBconstant.c内可更改连接到电脑后 识别的设备名称:
-![3-key](https://github.com/yuan910715/3keys/blob/main/pics/3-key.png)
+![3-key](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/3-key.png)
 
 ```
 __code uint16_t Prod_Des[]={                                //Produce String Descriptor
@@ -278,46 +278,46 @@ https://oshwhub.com/inramento/3jian-CVxiao-jian-pan
 
 
 原理图： 非最新 最新增加了两个cc 5.1k电阻用于识别c to c线 请在开源广场自行查看
-![yuanlitu](https://github.com/yuan910715/3keys/blob/main/pics/yuanlitu.png)
+![yuanlitu](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/yuanlitu.png)
 
 2023.3.9更新 V3.0版本 新增了R2 R3 两个5.1K电阻 用于C TO C线 如果不焊接这两个电阻 将只能使用 A TO C线   加大了TYPE C焊盘 降低焊接难度
 v3_1：
-![v3_1](https://github.com/yuan910715/3keys/blob/main/pics/V3_1.jpg)
+![v3_1](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/V3_1.jpg)
 
 v3_2：
-![v3_2](https://github.com/yuan910715/3keys/blob/main/pics/V3_2.jpg)
+![v3_2](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/V3_2.jpg)
 
 v3_3：
-![v3_3](https://github.com/yuan910715/3keys/blob/main/pics/V3_3.png)
+![v3_3](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/V3_3.png)
 
 pcb1：
-![pcb1](https://github.com/yuan910715/3keys/blob/main/pics/pcb1.png)
+![pcb1](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/pcb1.png)
 
 pcb2：
-![pcb2](https://github.com/yuan910715/3keys/blob/main/pics/pcb2.png)
+![pcb2](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/pcb2.png)
 
 pcb3：
-![pcb3](https://github.com/yuan910715/3keys/blob/main/pics/pcb3.png)
+![pcb3](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/pcb3.png)
 
 pcb4：
-![pcb4](https://github.com/yuan910715/3keys/blob/main/pics/pcb4.png)
+![pcb4](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/pcb4.png)
 
 pcb5：
-![pcb5](https://github.com/yuan910715/3keys/blob/main/pics/pcb5.png)
+![pcb5](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/pcb5.png)
 
 黑色版本 有小灯 因为效果不好 板子上已经把小灯删了
-![1](https://github.com/yuan910715/3keys/blob/main/pics/1.jpg)
+![1](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/1.jpg)
 
-![2](https://github.com/yuan910715/3keys/blob/main/pics/2.jpg)
+![2](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/2.jpg)
 
-![3](https://github.com/yuan910715/3keys/blob/main/pics/3.jpg)
+![3](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/3.jpg)
 
-![4](https://github.com/yuan910715/3keys/blob/main/pics/4.jpg)
+![4](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/4.jpg)
 
-![5_1](https://github.com/yuan910715/3keys/blob/main/pics/5_1.jpg)
+![5_1](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/5_1.jpg)
 
-![6](https://github.com/yuan910715/3keys/blob/main/pics/6.jpg)
+![6](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/6.jpg)
 
-![0](https://github.com/yuan910715/3keys/blob/main/pics/0.jpg)
+![0](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/0.jpg)
 
 
