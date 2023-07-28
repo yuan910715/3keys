@@ -19,7 +19,7 @@ ch552g目录下为 键盘程序源码。开发环境参考https://github.com/Deq
 
 ~~WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework 4.0开发~~  windows改键程序已废弃 请使用web改键
 
-![0](https://github.com/yuan910715/3keys/blob/main/pics/0.jpg)
+![0](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/0.jpg)
 
 # 软件
 
