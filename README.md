@@ -13,7 +13,7 @@ CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信
 
 部分精简版Win7需要装驱动 请自行搜索win7万能键盘驱动、win7 CDC驱动安装  万能键盘驱动用于识别键盘 CDC用于连接改键页
 
-![web](https://github.com/yuan910715/3keys/blob/main/pics/web.jpg)
+![web](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/web.jpg)
 
 ch552g目录下为 键盘程序源码。开发环境参考https://github.com/DeqingSun/ch55xduino 感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/112
 
