@@ -3,322 +3,102 @@
     <div>
        <el-row>      
           <img src="./assets/key1.png">
-      </el-row>  
+      </el-row>
+      <el-row class="change-language">
+        <el-button type="text" @click="changeLang('zh')" :class="[$i18n.locale === 'zh' ? 'light' : 'normal']">中文</el-button>
+        <span>&nbsp;|&nbsp;</span>
+        <el-button type="text" @click="changeLang('en')" :class="[$i18n.locale === 'en' ? 'light' : 'normal']">English</el-button>
+      </el-row>
+      <el-row>
+      <el-popover
+        placement="bottom"
+        width="800"
+        trigger="click">
+        <div style="text-align: center;font-family: Helvetica, sans-serif;">
+          <el-row  style="margin-bottom: 10px;"><h2>{{ $t('index.helpTitle') }}</h2></el-row>
+          <el-row>{{ $t('index.helpTips0') }}</el-row>
+          <el-row>{{ $t('index.helpTips1') }}<br/>{{ $t('index.helpTips1_1') }}</el-row>
+          <el-row>{{ $t('index.helpTips2') }}<br/>{{ $t('index.helpTips2_1') }}</el-row>
+          <el-row>{{ $t('index.helpTips3') }}</el-row>
+          <el-row>{{ $t('index.helpTips4') }}</el-row>
+          <el-row>{{ $t('index.helpTips5') }}</el-row>
+          <el-row>{{ $t('index.helpTips6') }}</el-row>
+        </div>
+        <el-button slot="reference" type="info" icon="el-icon-chat-dot-round">{{ $t('index.helpButton') }}</el-button>
+      </el-popover>
+      </el-row>
       <el-row>      
-        <el-button :type="conButtonType" @click="conClick()">{{ conButton }}</el-button>       
+        <el-button :type="conButtonType" @click="conClick()" icon="el-icon-cpu">{{ conButton }}</el-button>       
       </el-row>
       <el-row>
-        <label style="margin-right: 20px;">key1:</label>
-        <el-radio-group v-model="key1radio" @change="key1fucChange()">
-          <el-radio :label="1">普通键</el-radio>
-          <el-radio :label="2">功能键</el-radio>
-          <el-radio :label="3">多媒体键</el-radio>
-          <el-radio :label="4">组合键</el-radio>
-          <el-radio :label="5">字符串</el-radio>
-        </el-radio-group>
+        <key-config ref="key1config" labelstr="key1" :stringshow="true"></key-config>
       </el-row>
       <el-row>
-        <el-select v-model="key1funcselectvalue" placeholder="请选择" v-if="key1funcselectshow" style="width:280px">
-          <el-option
-            v-for="item in key1funcoptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <label v-if="key1labelshow">+</label>
-        <el-select v-model="key1mediaselectvalue" placeholder="请选择" v-if="key1mediaselectshow" style="width:400px">
-          <el-option
-            v-for="item in key1mediaoptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <el-input style="width:70px" type="text" v-model="key1text1" maxlength="1" show-word-limit v-if="key1input1show"></el-input>       
-        <el-input style="width:350px" type="text" v-model="key1text2" maxlength="30" show-word-limit clearable v-if="key1input2show"></el-input>      
+        <key-config ref="key2config" labelstr="key2" :stringshow="true"></key-config>
       </el-row>
-      <el-row>
-        <label style="margin-right: 20px;">key2:</label>
-        <el-radio-group v-model="key2radio" @change="key2fucChange()">
-          <el-radio :label="1">普通键</el-radio>
-          <el-radio :label="2">功能键</el-radio>
-          <el-radio :label="3">多媒体键</el-radio>
-          <el-radio :label="4">组合键</el-radio>
-          <el-radio :label="5">字符串</el-radio>
-        </el-radio-group>
+      <el-row style="margin-bottom: 5px;">
+        <key-config ref="key3config" labelstr="key3" :stringshow="true"></key-config>
       </el-row>
-      <el-row>
-        <el-select v-model="key2funcselectvalue" placeholder="请选择" v-if="key2funcselectshow" style="width:280px">
-          <el-option
-            v-for="item in key2funcoptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <label v-if="key2labelshow">+</label>
-        <el-select v-model="key2mediaselectvalue" placeholder="请选择" v-if="key2mediaselectshow" style="width:400px">
-          <el-option
-            v-for="item in key2mediaoptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <el-input style="width:70px" type="text" v-model="key2text1" maxlength="1" show-word-limit v-if="key2input1show"></el-input>       
-        <el-input style="width:350px" type="text" v-model="key2text2" maxlength="30" show-word-limit clearable v-if="key2input2show"></el-input>      
+      <el-row style="margin-bottom: 30px;">
+       <label>{{ $t('index.keyAllLabel') }}</label><el-switch style="margin-left: 20px;" v-model="keyallmodeshow" :active-text="$t('index.keyAllTrue')" :inactive-text="$t('index.keyAllFalse')"></el-switch>
       </el-row>
+      <el-row v-show="keyallmodeshow">
+        <key-config ref="keyallconfig" labelstr="keyAll" :stringshow="false"></key-config>
+      </el-row> 
       <el-row>
-        <label style="margin-right: 20px;">key3:</label>
-        <el-radio-group v-model="key3radio" @change="key3fucChange()">
-          <el-radio :label="1">普通键</el-radio>
-          <el-radio :label="2">功能键</el-radio>
-          <el-radio :label="3">多媒体键</el-radio>
-          <el-radio :label="4">组合键</el-radio>
-          <el-radio :label="5">字符串</el-radio>
-        </el-radio-group>
-      </el-row>
-      <el-row>
-        <el-select v-model="key3funcselectvalue" placeholder="请选择" v-if="key3funcselectshow" style="width:280px">
-          <el-option
-            v-for="item in key3funcoptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <label v-if="key3labelshow">+</label>
-        <el-select v-model="key3mediaselectvalue" placeholder="请选择" v-if="key3mediaselectshow" style="width:400px">
-          <el-option
-            v-for="item in key3mediaoptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <el-input style="width:70px" type="text" v-model="key3text1" maxlength="1" show-word-limit v-if="key3input1show"></el-input>       
-        <el-input style="width:350px" type="text" v-model="key3text2" maxlength="30" show-word-limit clearable v-if="key3input2show"></el-input>      
-      </el-row>
-      <el-row>
-        <el-button type="primary" @click="sendClick()" :disabled="sendLabel">提交</el-button>   
+        <el-button type="primary" @click="sendClick()" :disabled="sendLabel">{{sendText}}</el-button>   
       </el-row>
       <el-row>
         <img src="./assets/key2.png">
       </el-row>
       <el-row>
-        项目软硬件全部开源
+        <p>{{ $t('index.changeLog3') }} <a :href="$t('index.howtoaddress')" target="_blank">{{ $t('index.changeLog1_1') }}</a></p>
+        <p>{{ $t('index.changeLog1') }}</p>
+        <p>{{ $t('index.changeLog2') }}</p>
       </el-row>
       <el-row>
-        <a href="https://github.com/yuan910715">https://github.com/yuan910715</a>
+        <p><a href="https://www.bilibili.com/video/BV1M84y1n7r1" target="_blank">{{ $t('index.videoText') }}</a></p>
+        <p>{{ $t('index.keyTest') }}</p>
+        <p><a href="https://keyboard.bmcx.com/" target="_blank">https://keyboard.bmcx.com/</a></p>
+        <p>{{ $t('index.mouseTest') }}</p>
+        <p><a href="https://cps-check.com/cn/mouse-buttons-test" target="_blank">https://cps-check.com/cn/mouse-buttons-test</a></p>       
+      </el-row>
+      <el-row>
+        {{ $t('index.openSource') }}
+      </el-row>
+      <el-row>
+        <a href="https://github.com/yuan910715" target="_blank">https://github.com/yuan910715</a>
+      </el-row>
+      <el-row>
+        <a href="https://topyuan.top">{{ $t('index.backToIndex') }}</a>
       </el-row> 
     </div>
   </div>
 </template>
 
 <script>
+import KeyConfig from './components/KeyConfig.vue';
+import axios from 'axios';
 export default {
-  methods: {
-    key1fucChange(){
-      switch(this.key1radio){
-        case 1://normal
-          this.key1input1show = true;
-          this.key1funcselectshow = false;
-          this.key1mediaselectshow = false;
-          this.key1input2show = false;
-          this.key1labelshow = false;
-          break;
-        case 2://function
-          this.key1input1show = false;
-          this.key1funcselectshow = true;
-          this.key1mediaselectshow = false;
-          this.key1input2show = false;
-          this.key1labelshow = false;
-          this.key1funcoptions.splice(0,this.key1funcoptions.length);
-          for(var i=0;i<this.functionkeys.length;i++){
-            this.key1funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
-          }
-          break;
-        case 3://media
-          this.key1input1show = false;
-          this.key1funcselectshow = false;
-          this.key1mediaselectshow = true;
-          this.key1input2show = false;
-          this.key1labelshow = false;
-          this.key1mediaoptions.splice(0,this.key1mediaoptions.length);
-          for(var i=0;i<this.mediakeys.length;i++){
-            this.key1mediaoptions.push({value:this.mediakeyvalues[i],label:this.mediakeys[i]});
-          }
-          break;
-        case 4://mix
-          this.key1input1show = true;
-          this.key1funcselectshow = true;
-          this.key1mediaselectshow = false;
-          this.key1input2show = false;
-          this.key1labelshow = true;
-          this.key1funcoptions.splice(0,this.key1funcoptions.length);
-          for(var i=0;i<this.functionkeys.length;i++){
-            this.key1funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
-          }
-          break;
-        case 5://string
-          this.key1input1show = false;
-          this.key1funcselectshow = false;
-          this.key1mediaselectshow = false;
-          this.key1input2show = true;
-          this.key1labelshow = false;
-          break;
-        default://none
-          this.key1input1show = false;
-          this.key1funcselectshow = false;
-          this.key1mediaselectshow = false;
-          this.key1input2show = false;
-          this.key1labelshow = false;
-          break;        
-      }
- 
-    },
-    key2fucChange(){
-      switch(this.key2radio){
-        case 1://normal
-          this.key2input1show = true;
-          this.key2funcselectshow = false;
-          this.key2mediaselectshow = false;
-          this.key2input2show = false;
-          this.key2labelshow = false;
-          break;
-        case 2://function
-          this.key2input1show = false;
-          this.key2funcselectshow = true;
-          this.key2mediaselectshow = false;
-          this.key2input2show = false;
-          this.key2labelshow = false;
-          this.key2funcoptions.splice(0,this.key2funcoptions.length);
-          for(var i=0;i<this.functionkeys.length;i++){
-            this.key2funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
-          }
-          break;
-        case 3://media
-          this.key2input1show = false;
-          this.key2funcselectshow = false;
-          this.key2mediaselectshow = true;
-          this.key2input2show = false;
-          this.key2labelshow = false;
-          this.key2mediaoptions.splice(0,this.key2mediaoptions.length);
-          for(var i=0;i<this.mediakeys.length;i++){
-            this.key2mediaoptions.push({value:this.mediakeyvalues[i],label:this.mediakeys[i]});
-          }
-          break;
-        case 4://mix
-          this.key2input1show = true;
-          this.key2funcselectshow = true;
-          this.key2mediaselectshow = false;
-          this.key2input2show = false;
-          this.key2labelshow = true;
-          this.key2funcoptions.splice(0,this.key2funcoptions.length);
-          for(var i=0;i<this.functionkeys.length;i++){
-            this.key2funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
-          }
-          break;
-        case 5://string
-          this.key2input1show = false;
-          this.key2funcselectshow = false;
-          this.key2mediaselectshow = false;
-          this.key2input2show = true;
-          this.key2labelshow = false;
-          break;
-        default://none
-          this.key2input1show = false;
-          this.key2funcselectshow = false;
-          this.key2mediaselectshow = false;
-          this.key2input2show = false;
-          this.key2labelshow = false;
-          break;        
-      }
- 
-    },
-    key3fucChange(){
-      switch(this.key3radio){
-        case 1://normal
-          this.key3input1show = true;
-          this.key3funcselectshow = false;
-          this.key3mediaselectshow = false;
-          this.key3input2show = false;
-          this.key3labelshow = false;
-          break;
-        case 2://function
-          this.key3input1show = false;
-          this.key3funcselectshow = true;
-          this.key3mediaselectshow = false;
-          this.key3input2show = false;
-          this.key3labelshow = false;
-          this.key3funcoptions.splice(0,this.key3funcoptions.length);
-          for(var i=0;i<this.functionkeys.length;i++){
-            this.key3funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
-          }
-          break;
-        case 3://media
-          this.key3input1show = false;
-          this.key3funcselectshow = false;
-          this.key3mediaselectshow = true;
-          this.key3input2show = false;
-          this.key3labelshow = false;
-          this.key3mediaoptions.splice(0,this.key3mediaoptions.length);
-          for(var i=0;i<this.mediakeys.length;i++){
-            this.key3mediaoptions.push({value:this.mediakeyvalues[i],label:this.mediakeys[i]});
-          }
-          break;
-        case 4://mix
-          this.key3input1show = true;
-          this.key3funcselectshow = true;
-          this.key3mediaselectshow = false;
-          this.key3input2show = false;
-          this.key3labelshow = true;
-          this.key3funcoptions.splice(0,this.key3funcoptions.length);
-          for(var i=0;i<this.functionkeys.length;i++){
-            this.key3funcoptions.push({value:this.functionkeyvalues[i],label:this.functionkeys[i]});
-          }
-          break;
-        case 5://string
-          this.key3input1show = false;
-          this.key3funcselectshow = false;
-          this.key3mediaselectshow = false;
-          this.key3input2show = true;
-          this.key3labelshow = false;
-          break;
-        default://none
-          this.key3input1show = false;
-          this.key3funcselectshow = false;
-          this.key3mediaselectshow = false;
-          this.key3input2show = false;
-          this.key3labelshow = false;
-          break;        
-      }
- 
-    },
-    conClick(){
+  components: { KeyConfig },
+  methods: {   
+    conClick(){     
       if(this.sendLabel==false){
         this.sendLabel=true;
-        this.conButton="连接3 Key键盘";
+        this.sendText=this.$t('index.connFirst');
+        this.conButton=this.$t('index.connButtonText1');
         this.conButtonType="primary";
-        this.key1radio=0;
-        this.key1funcselectvalue="";
-        this.key1mediaselectvalue="";
-        this.key1fucChange();
-        this.key2radio=0;
-        this.key2funcselectvalue="";
-        this.key2mediaselectvalue="";
-        this.key2fucChange();
-        this.key3radio=0;
-        this.key3funcselectvalue="";
-        this.key3mediaselectvalue="";
-        this.key3fucChange();
+        this.$refs.key1config.keyReset();
+        this.$refs.key2config.keyReset();
+        this.$refs.key3config.keyReset();
+        this.$refs.keyallconfig.keyReset();
+        this.keyallmodeshow=false;
         this.disconnectSerial();
       }
       else if (navigator.serial) {
-		     this.connectSerial();   
+		     this.connectSerial();
 		   } else {
-		     alert('请使用新版本Chrome或Edge浏览器,https方式访问此页面!');
+         alert(this.$t('index.browserErr'));
 		   }
     },
     async sendCommit(){
@@ -326,215 +106,96 @@ export default {
                     0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
                     0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
                     0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-                    0x03 ]);
-      switch(this.key1radio){
-          case 1://normal
-              if(this.key1text1.length!=1){
-                this.$message.error('key1输入错误');
-                return;
-              }
-              let key1tmp=this.key1text1.charCodeAt(0);
-                if(key1tmp<0||key1tmp>255){
-                  this.$message.error('key1输入错误');
-                  return;
-                }                
-                data[1]=key1tmp;
-                data[4]=0x00;                             
-              break;
-          case 2://function
-              if(this.key1funcselectvalue==""){
-                this.$message.error('key1选择错误');
-                return;
-              }          
-                data[1]=this.key1funcselectvalue;
-                data[4]=0x00;     
-              break;
-          case 3://media
-              if(this.key1mediaselectvalue==""){
-                this.$message.error('key1选择错误');
-                return;
-              }          
-                data[1]=this.key1mediaselectvalue & 0xff;
-                if(((this.key1mediaselectvalue>>8) & 0xff) !=0){
-                  data[7] = (this.key1mediaselectvalue>>8) & 0xff;
-                }
-                data[4]=0x01;     
-              break;
-          case 4://mix
-              if(this.key1funcselectvalue==""){
-                this.$message.error('key1选择错误');
-                return;
-              }
-              if(this.key1text1.length!=1){
-                this.$message.error('key1输入错误');
-                return;
-              }
-              let key1mixtmp=this.key1text1.charCodeAt(0);
-                if(key1mixtmp<0||key1mixtmp>255){
-                  this.$message.error('key1输入错误');
-                  return;
-                }                
-                data[1]=key1mixtmp;
-                data[4]=0x02;        
-                data[7]=this.key1funcselectvalue;
-            break; 
-          case 5://string
-            if(this.key1text2.length==0){
-                this.$message.error('key1字符串不能为空');
-                return;            
-            }
-            for(var i=0;i<this.key1text2.length;i++){
-              if(this.key1text2.charCodeAt(i)<0||this.key1text2.charCodeAt(i)>255){
-                this.$message.error('key1字符串输入错误，无此键位');
-                return;            
-              }
-              data[10+i]=this.key1text2.charCodeAt(i);
-            }
-            data[4]=0x03;
-            break;
-          default://none
-          this.$message.error('key1设置错误');
-          return;
-      }
-      switch(this.key2radio){
-          case 1://normal
-              if(this.key2text1.length!=1){
-                this.$message.error('key2输入错误');
-                return;
-              }
-              let key2tmp=this.key2text1.charCodeAt(0);
-                if(key2tmp<0||key2tmp>255){
-                  this.$message.error('key2输入错误');
-                  return;
-                }                
-                data[2]=key2tmp;
-                data[5]=0x00;                             
-              break;
-          case 2://function
-              if(this.key2funcselectvalue==""){
-                this.$message.error('key2选择错误');
-                return;
-              }          
-                data[2]=this.key2funcselectvalue;
-                data[5]=0x00;     
-              break;
-          case 3://media
-              if(this.key2mediaselectvalue==""){
-                this.$message.error('key2选择错误');
-                return;
-              }          
-                data[2]=this.key2mediaselectvalue & 0xff;
-                if(((this.key2mediaselectvalue>>8) & 0xff) !=0){
-                  data[8] = (this.key2mediaselectvalue>>8) & 0xff;
-                }
-                data[5]=0x01;     
-              break;
-          case 4://mix
-              if(this.key2funcselectvalue==""){
-                this.$message.error('key2选择错误');
-                return;
-              }
-              if(this.key2text1.length!=1){
-                this.$message.error('key2输入错误');
-                return;
-              }
-              let key2mixtmp=this.key2text1.charCodeAt(0);
-                if(key2mixtmp<0||key2mixtmp>255){
-                  this.$message.error('key2输入错误');
-                  return;
-                }                
-                data[2]=key2mixtmp;
-                data[5]=0x02;        
-                data[8]=this.key2funcselectvalue;
-            break; 
-          case 5://string
-            if(this.key2text2.length==0){
-                this.$message.error('key2字符串不能为空');
-                return;            
-            }
-            for(var i=0;i<this.key2text2.length;i++){
-              if(this.key2text2.charCodeAt(i)<0||this.key2text2.charCodeAt(i)>255){
-                this.$message.error('key2字符串输入错误，无此键位');
-                return;            
-              }
-              data[40+i]=this.key2text2.charCodeAt(i);
-            }
-            data[5]=0x03;
-            break;
-          default://none
-          this.$message.error('key2设置错误');
-          return;
-      }
-      switch(this.key3radio){
-          case 1://normal
-              if(this.key3text1.length!=1){
-                this.$message.error('key3输入错误');
-                return;
-              }
-              let key3tmp=this.key3text1.charCodeAt(0);
-                if(key3tmp<0||key3tmp>255){
-                  this.$message.error('key3输入错误');
-                  return;
-                }                
-                data[3]=key3tmp;
-                data[6]=0x00;                             
-              break;
-          case 2://function
-              if(this.key3funcselectvalue==""){
-                this.$message.error('key3选择错误');
-                return;
-              }          
-                data[3]=this.key3funcselectvalue;
-                data[6]=0x00;     
-              break;
-          case 3://media
-              if(this.key3mediaselectvalue==""){
-                this.$message.error('key3选择错误');
-                return;
-              }          
-                data[3]=this.key3mediaselectvalue & 0xff;
-                if(((this.key3mediaselectvalue>>8) & 0xff) !=0){
-                  data[9] = (this.key3mediaselectvalue>>8) & 0xff;
-                }
-                data[6]=0x01;     
-              break;
-          case 4://mix
-              if(this.key3funcselectvalue==""){
-                this.$message.error('key3选择错误');
-                return;
-              }
-              if(this.key3text1.length!=1){
-                this.$message.error('key3输入错误');
-                return;
-              }
-              let key3mixtmp=this.key3text1.charCodeAt(0);
-                if(key3mixtmp<0||key3mixtmp>255){
-                  this.$message.error('key3输入错误');
-                  return;
-                }                
-                data[3]=key3mixtmp;
-                data[6]=0x02;        
-                data[9]=this.key3funcselectvalue;
-            break; 
-          case 5://string
-            if(this.key3text2.length==0){
-                this.$message.error('key3字符串不能为空');
-                return;            
-            }
-            for(var i=0;i<this.key3text2.length;i++){
-              if(this.key3text2.charCodeAt(i)<0||this.key3text2.charCodeAt(i)>255){
-                this.$message.error('key3字符串输入错误，无此键位');
-                return;            
-              }
-              data[70+i]=this.key3text2.charCodeAt(i);
-            }
-            data[6]=0x03;
-            break;
-          default://none
-          this.$message.error('key3设置错误');
-          return;
-      }
-      // console.log(data);
+                    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
+                    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x03 ]);
+     let r1=this.$refs.key1config.getResult();
+     if(!r1){
+        return;
+     }
+     let r2=this.$refs.key2config.getResult();
+     if(!r2){
+        return;
+     }
+     let r3=this.$refs.key3config.getResult();
+     if(!r3){
+        return;
+     }
+     if(this.keyallmodeshow){
+        let rall=this.$refs.keyallconfig.getResult();
+        if(!rall){
+            return;
+        }
+        data[115]=rall.keyCode;
+        data[116]=rall.funcCode;
+        data[117]=rall.mediaExtraCode;
+        data[153]=0x01;
+        for(var i=0;i<30;i++){
+          data[118+i]=rall.stringCode[i];
+        }
+        for(var i=0;i<5;i++){
+          data[148+i]=rall.mixCode[i];
+        }
+        if(this.oldversion){
+          if(rall.funcCode==0x04 || rall.funcCode==0x05 ||rall.funcCode==0x06 ||rall.funcCode==0x07 ||rall.funcCode==0x08 ||rall.funcCode==0x09 ){
+            this.$confirm(this.$t('index.firmwareErr'),  this.$t('index.tip'), {
+                    dangerouslyUseHTMLString: true,
+                    confirmButtonText: this.$t('index.updateHelp'),
+                    cancelButtonText: this.$t('index.updateNo'),
+                    type: 'warning'
+                  }).then(() => {
+                    this.$message({
+                      type: 'success',
+                      message: this.$t('index.redirecting')
+                    });
+                    window.location.href=this.$t('index.howtoaddress');
+                  }).catch(() => {
+                    return;
+                  });
+            return;
+          }
+        }
+     }
+     if(this.oldversion){
+      if(r1.funcCode==0x04 || r1.funcCode==0x05 ||r1.funcCode==0x06 ||r1.funcCode==0x07 ||r1.funcCode==0x08 ||r1.funcCode==0x09 ||
+      r2.funcCode==0x04 || r2.funcCode==0x05 ||r2.funcCode==0x06 ||r2.funcCode==0x07 ||r2.funcCode==0x08 ||r2.funcCode==0x09 ||
+      r3.funcCode==0x04 || r3.funcCode==0x05 ||r3.funcCode==0x06 ||r3.funcCode==0x07 ||r3.funcCode==0x08 ||r3.funcCode==0x09 ){
+        this.$confirm(this.$t('index.firmwareErr'), this.$t('index.tip'), {
+                    dangerouslyUseHTMLString: true,
+                    confirmButtonText: this.$t('index.updateHelp'),
+                    cancelButtonText: this.$t('index.updateNo'),
+                    type: 'warning'
+                  }).then(() => {
+                    this.$message({
+                      type: 'success',
+                      message: this.$t('index.redirecting')
+                    });
+                    window.location.href=this.$t('index.howtoaddress');
+                  }).catch(() => {
+                    return;
+                  });
+            return;
+      }      
+     }
+     data[1]=r1.keyCode;
+     data[4]=r1.funcCode;
+     data[7]=r1.mediaExtraCode;
+     data[2]=r2.keyCode;
+     data[5]=r2.funcCode;
+     data[8]=r2.mediaExtraCode;
+     data[3]=r3.keyCode;
+     data[6]=r3.funcCode;
+     data[9]=r3.mediaExtraCode;
+     for(var i=0;i<30;i++){
+      data[10+i]=r1.stringCode[i];
+      data[40+i]=r2.stringCode[i];
+      data[70+i]=r3.stringCode[i];
+     }
+     for(var i=0;i<5;i++){
+      data[100+i]=r1.mixCode[i];
+      data[105+i]=r2.mixCode[i];
+      data[110+i]=r3.mixCode[i];
+     }
+    //  console.log(data);
 		  await this.writer.write(data);
     },
     async sendQuery(){
@@ -544,7 +205,7 @@ export default {
     sendClick(){
       this.sendCommit();
     },
-    async connectSerial(){	
+    async connectSerial(){
           const filters = [
           { usbVendorId: 0x1209, usbProductId: 0xC550 }
         ];	   		      
@@ -556,13 +217,11 @@ export default {
 		      const readableStreamClosed = this.port.readable.pipeTo(decoder.writable);
           
 		      const inputStream = decoder.readable;
-		      // this.reader = inputStream.getReader();
           this.reader = decoder.readable.pipeThrough(new TransformStream(new LineBreakTransformer())).getReader();
-          // this.reader= this.port.readable.pipeThrough(new TransformStream(new LineBreakTransformer())).getReader();
 		      this.sendLabel=false;
-          this.conButton='断开连接';
+          this.sendText=this.$t('index.submit');
+          this.conButton=this.$t('index.disconnect');
           this.conButtonType='warning';
-          // await this.port.setSignals({dataTerminalReady:true});
           await this.sendQuery();
           let label=0;
 		      while (true) {
@@ -570,196 +229,129 @@ export default {
                if(label==0){
                 if(value=="1"){
                   this.$message({
-                    message:"设置成功!",
+                    message:this.$t('index.success'),
                     type:"success"
                   });
                   label=0;
                   continue;
+                }else if(value && value!='v3' && value!='v4' && value!='v5'){
+                  await this.disconnectSerial();
+                  this.sendLabel=true;
+                  this.sendText=this.sendText=this.$t('index.submit');
+                  this.conButton="this.$t('index.connButtonText1')";
+                  this.conButtonType="primary";
+                  this.$confirm(this.$t('index.firmwareErr1'),  this.$t('index.tip'), {
+                    dangerouslyUseHTMLString: true,
+                    confirmButtonText: this.$t('index.updateHelp'),
+                    cancelButtonText: this.$t('index.updateNo1'),
+                    type: 'warning'
+                  }).then(() => {
+                    this.$message({
+                      type: 'success',
+                      message: this.$t('index.redirecting')
+                    });
+                    window.location.href=this.$t('index.howtoaddress');
+                  }).catch(() => {
+                    this.$message({
+                      type: 'success',
+                      message: this.$t('index.redirecting')
+                    });
+                    window.location.href="https://topyuan.top/3keyold";
+                  });
+               
+                  return;
+                }else if(value=='v3' || value=='v4'){
+                  this.oldversion = true;
                 }
-                this.key1=parseInt(value,16);
                }else if(label==1){
-                this.key2=parseInt(value,16);
+                this.key1=parseInt(value,16);
                }else if(label==2){
-                this.key3=parseInt(value,16);
+                this.key2=parseInt(value,16);             
                }else if(label==3){
-                this.key1func=parseInt(value,16);
+                this.key3=parseInt(value,16);
                }else if(label==4){
-                this.key2func=parseInt(value,16);
+                this.key1func=parseInt(value,16);
                }else if(label==5){
-                this.key3func=parseInt(value,16);
+                this.key2func=parseInt(value,16);
                }else if(label==6){
-                this.key1f=parseInt(value,16);
+                this.key3func=parseInt(value,16);
                }else if(label==7){
-                this.key2f=parseInt(value,16);
+                this.key1f=parseInt(value,16);
                }else if(label==8){
-                this.key3f=parseInt(value,16);
+                this.key2f=parseInt(value,16);
                }else if(label==9){
-                this.key1text2=value;
+                this.key3f=parseInt(value,16);
                }else if(label==10){
-                this.key2text2=value;
+                this.key1str=value;
                }else if(label==11){
-                this.key3text2=value;
-               }
-
+                this.key2str=value;
+               }else if(label==12){
+                this.key3str=value;
+               }else if(label==13){
+                this.key1mix[0]=parseInt(value,16);
+               }else if(label==14){
+                this.key1mix[1]=parseInt(value,16);
+               }else if(label==15){
+                this.key1mix[2]=parseInt(value,16);
+               }else if(label==16){
+                this.key1mix[3]=parseInt(value,16);
+               }else if(label==17){
+                this.key1mix[4]=parseInt(value,16);
+               }else if(label==18){
+                this.key2mix[0]=parseInt(value,16);
+               }else if(label==19){
+                this.key2mix[1]=parseInt(value,16);
+               }else if(label==20){
+                this.key2mix[2]=parseInt(value,16);
+               }else if(label==21){
+                this.key2mix[3]=parseInt(value,16);
+               }else if(label==22){
+                this.key2mix[4]=parseInt(value,16);
+               }else if(label==23){
+                this.key3mix[0]=parseInt(value,16);
+               }else if(label==24){
+                this.key3mix[1]=parseInt(value,16);
+               }else if(label==25){
+                this.key3mix[2]=parseInt(value,16);
+               }else if(label==26){
+                this.key3mix[3]=parseInt(value,16);
+               }else if(label==27){
+                this.key3mix[4]=parseInt(value,16);
+               }else if(label==28){
+                this.keyall=parseInt(value,16);
+               }else if(label==29){
+                this.keyallfunc=parseInt(value,16);
+               }else if(label==30){
+                this.keyallf=parseInt(value,16);
+               }else if(label==31){
+                this.keyallstr=value;
+               }else if(label==32){
+                this.keyallmix[0]=parseInt(value,16);
+               }else if(label==33){
+                this.keyallmix[1]=parseInt(value,16);
+               }else if(label==34){
+                this.keyallmix[2]=parseInt(value,16);
+               }else if(label==35){
+                this.keyallmix[3]=parseInt(value,16);
+               }else if(label==36){
+                this.keyallmix[4]=parseInt(value,16);
+               }else if(label==37){
+                this.keyallmode=parseInt(value,16);
+               }              
 		        label++;
-            if(label>=12){
-              label=0;             
-              switch(this.key1func){
-                case 1://media
-                  this.key1radio=3;
-                  this.key1fucChange();
-                  if(this.key1f==0xff){
-                    for(var i=0;i<this.mediakeyvalues.length;i++){
-                      if(this.mediakeyvalues[i]==this.key1){                     
-                        this.key1mediaselectvalue=this.key1;
-                      }
-                  }
-                  }else{
-                    let tmp=Number(this.key1f<<8)+Number(this.key1);
-                    for(var i=0;i<this.mediakeyvalues.length;i++){
-                      if(this.mediakeyvalues[i]==tmp){                     
-                        this.key1mediaselectvalue=tmp;
-                      }
-                  }                    
-                  }
-                  break;
-                case 2://mix
-                  this.key1radio=4;
-                  this.key1fucChange();
-                  for(var i=0;i<this.functionkeyvalues.length;i++){
-                    if(this.functionkeyvalues[i]==this.key1f){
-                      this.key1funcselectvalue=this.key1f;
-                    }
-                  }
-                  this.key1text1=String.fromCharCode(this.key1);
-                  break;
-                case 3://string
-                  this.key1radio=5;
-                  this.key1fucChange();
-                  break;
-                default://normal
-                  let key1label=false;
-                  //function
-                  for(var i=0;i<this.functionkeyvalues.length;i++){
-                    if(this.functionkeyvalues[i]==this.key1){
-                      this.key1radio=2;
-                      this.key1fucChange();
-                      this.key1funcselectvalue=this.key1;
-                      key1label=true;
-                    }
-                  }
-                  if(!key1label){//normal
-                    this.key1radio=1;
-                    this.key1fucChange();
-                    this.key1text1=String.fromCharCode(this.key1);
-                  }
-                  break;
-              }
-              switch(this.key2func){
-                case 1://media
-                  this.key2radio=3;
-                  this.key2fucChange();
-                  if(this.key2f==0xff){
-                    for(var i=0;i<this.mediakeyvalues.length;i++){
-                      if(this.mediakeyvalues[i]==this.key2){                     
-                        this.key2mediaselectvalue=this.key2;
-                      }
-                  }
-                  }else{
-                    let tmp=Number(this.key2f<<8)+Number(this.key2);
-                    for(var i=0;i<this.mediakeyvalues.length;i++){
-                      if(this.mediakeyvalues[i]==tmp){                     
-                        this.key2mediaselectvalue=tmp;
-                      }
-                  }                    
-                  }
-                  break;
-                case 2://mix
-                  this.key2radio=4;
-                  this.key2fucChange();
-                  for(var i=0;i<this.functionkeyvalues.length;i++){
-                    if(this.functionkeyvalues[i]==this.key2f){
-                      this.key2funcselectvalue=this.key2f;
-                    }
-                  }
-                  this.key2text1=String.fromCharCode(this.key2);
-                  break;
-                case 3://string
-                  this.key2radio=5;
-                  this.key2fucChange();
-                  break;
-                default://normal
-                  let key2label=false;
-                  //function
-                  for(var i=0;i<this.functionkeyvalues.length;i++){
-                    if(this.functionkeyvalues[i]==this.key2){
-                      this.key2radio=2;
-                      this.key2fucChange();
-                      this.key2funcselectvalue=this.key2;
-                      key2label=true;
-                    }
-                  }
-                  if(!key2label){//normal
-                    this.key2radio=1;
-                    this.key2fucChange();
-                    this.key2text1=String.fromCharCode(this.key2);
-                  }
-                  break;
-              }
-              switch(this.key3func){
-                case 1://media
-                  this.key3radio=3;
-                  this.key3fucChange();
-                  if(this.key3f==0xff){
-                    for(var i=0;i<this.mediakeyvalues.length;i++){
-                      if(this.mediakeyvalues[i]==this.key3){                     
-                        this.key3mediaselectvalue=this.key3;
-                      }
-                  }
-                  }else{
-                    let tmp=Number(this.key3f<<8)+Number(this.key3);
-                    for(var i=0;i<this.mediakeyvalues.length;i++){
-                      if(this.mediakeyvalues[i]==tmp){                     
-                        this.key3mediaselectvalue=tmp;
-                      }
-                  }                    
-                  }
-                  break;
-                case 2://mix
-                  this.key3radio=4;
-                  this.key3fucChange();
-                  for(var i=0;i<this.functionkeyvalues.length;i++){
-                    if(this.functionkeyvalues[i]==this.key3f){
-                      this.key3funcselectvalue=this.key3f;
-                    }
-                  }
-                  this.key3text1=String.fromCharCode(this.key3);
-                  break;
-                case 3://string
-                  this.key3radio=5;
-                  this.key3fucChange();
-                  break;
-                default://normal
-                  let key3label=false;
-                  //function
-                  for(var i=0;i<this.functionkeyvalues.length;i++){
-                    if(this.functionkeyvalues[i]==this.key3){
-                      this.key3radio=2;
-                      this.key3fucChange();
-                      this.key3funcselectvalue=this.key3;
-                      key3label=true;
-                    }
-                  }
-                  if(!key3label){//normal
-                    this.key3radio=1;
-                    this.key3fucChange();
-                    this.key3text1=String.fromCharCode(this.key3);
-                  }
-                  break;
+            if(label>=38){
+              label=0;
+              this.$refs.key1config.setKey(this.key1,this.key1func,this.key1f,this.key1str,this.key1mix);
+              this.$refs.key2config.setKey(this.key2,this.key2func,this.key2f,this.key2str,this.key2mix);
+              this.$refs.key3config.setKey(this.key3,this.key3func,this.key3f,this.key3str,this.key3mix);
+              if(this.keyallmode==0x01){
+                this.keyallmodeshow=true;
+                this.$refs.keyallconfig.setKey(this.keyall,this.keyallfunc,this.keyallf,this.keyallstr,this.keyallmix);
+              }else{
+                this.keyallmodeshow=false;
               }
             }
 		        if (done) {
-		          console.log('已断开'); 
               await readableStreamClosed.catch(()=>{});       
 		          break;
 		        }
@@ -769,10 +361,10 @@ export default {
             return;
           }
           else if(error.name=='InvalidStateError'||error.name=='NetworkError'){
-            this.$message.error('端口已占用,连接失败!');
+            this.$message.error(this.$t('index.conError1'));
           }
           else{
-            this.$message.error('连接失败,原因:'+error);
+            this.$message.error(this.$t('index.conError2')+error);
           }
 		    }
 		  },
@@ -785,71 +377,95 @@ export default {
         await this.port.close();
         }catch(e){
           this.sendLabel=false;
-          this.conButton='断开连接';
+          this.sendText=this.$t('index.submit');
+          this.conButton=this.$t('index.disconnect');
           this.conButtonType='warning';
-          await this.sendQuery();
-          this.$message.error('断开连接失败!');
+          // await this.sendQuery();
+          this.$message.error(this.$t('index.conError3'));
           console.log(e);
+        }
+      },
+      getCommonData(){
+        var this_app=this;
+        axios.get('common.json')
+        .then(function (response) {
+          let commonkeys=[];
+          for(var i=0;i<response.data.length;i++){
+            let tmp={};
+            if(!tmp.mixkeys){
+              tmp.mixkeys=[];
+            }
+            for(var j=0;j<response.data[i].mixkeys.length;j++){
+               tmp.mixkeys[j]=(parseInt(response.data[i].mixkeys[j]));
+            }
+            if(this_app.$i18n.locale=='zh'){
+              tmp.description=response.data[i].description_zh;
+            }else if(this_app.$i18n.locale=='en'){
+              tmp.description=response.data[i].description_en;
+            }
+            commonkeys.push(tmp);          
+          }
+          this_app.$refs.key1config.setCommon(commonkeys);
+          this_app.$refs.key2config.setCommon(commonkeys);
+          this_app.$refs.key3config.setCommon(commonkeys);
+          this_app.$refs.keyallconfig.setCommon(commonkeys);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
+      changeLang(lang){        
+        this.$i18n.locale = lang;
+        localStorage.setItem('lang',lang);      
+        this.$refs.key1config.refreshText();
+        this.$refs.key2config.refreshText();
+        this.$refs.key3config.refreshText();
+        this.$refs.keyallconfig.refreshText();
+        this.getCommonData();
+        if(this.sendLabel==true){
+          this.sendText=this.$t('index.connFirst');
+          this.conButton=this.$t('index.connButtonText1');
+        }else{
+          this.sendText=this.$t('index.submit');
+          this.conButton=this.$t('index.disconnect');
         }
       }
   },
+  mounted (){
+    this.getCommonData();    
+  },
   data(){
     return{
+      oldversion:false,
+      keyallmodeshow:false,
       writer:{},
       port:{},
       reader:{},
       sendLabel:true,
-      key1funcselectshow:false,
-      key1mediaselectshow:false,
-      key1input1show:false,
-      key1input2show:false,
-      key1radio : 0,
-      key2funcselectshow:false,
-      key2mediaselectshow:false,
-      key2input1show:false,
-      key2input2show:false,
-      key2radio : 0,
-      key3funcselectshow:false,
-      key3mediaselectshow:false,
-      key3input1show:false,
-      key3input2show:false,
-      key3radio : 0,
-      conButton:"连接3 Key键盘",
+      sendText:this.$t('index.connFirst'),
+      conButton:this.$t('index.connButtonText1'),
       conButtonType:"primary",
-      key1:0,
-      key2:0,
-      key3:0,
-      key1func:0,
-      key2func:0,
-      key3func:0,
-      key1:0,
-      key2:0,
-      key3:0,
-      key1text1: '',
-      key1text2: '',
-      key2text1: '',
-      key2text2: '',
-      key3text1: '',
-      key3text2: '',
-      functionkeys:["KEY_LEFT_CTRL", "KEY_LEFT_SHIFT", "KEY_LEFT_ALT", "KEY_LEFT_WIN/COMMAND", "KEY_RIGHT_CTRL", "KEY_RIGHT_SHIFT", "KEY_RIGHT_ALT", "KEY_RIGHT_WIN/COMMAND", "KEY_UP_ARROW", "KEY_DOWN_ARROW", "KEY_LEFT_ARROW", "KEY_RIGHT_ARROW", "KEY_BACKSPACE", "KEY_TAB", "KEY_RETURN", "KEY_ESC", "KEY_INSERT", "KEY_DELETE", "KEY_PAGE_UP", "KEY_PAGE_DOWN", "KEY_HOME", "KEY_END", "KEY_CAPS_LOCK", "KEY_F1", "KEY_F2", "KEY_F3", "KEY_F4", "KEY_F5", "KEY_F6", "KEY_F7", "KEY_F8", "KEY_F9", "KEY_F10", "KEY_F11", "KEY_F12", "KEY_F13", "KEY_F14", "KEY_F15", "KEY_F16", "KEY_F17", "KEY_F18", "KEY_F19", "KEY_F20", "KEY_F21", "KEY_F22", "KEY_F23", "KEY_F24"],
-      functionkeyvalues:[0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0xDA, 0xD9, 0xD8, 0xD7, 0xB2, 0xB3, 0xB0, 0xB1, 0xD1, 0xD4, 0xD3, 0xD6, 0xD2, 0xD5, 0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xCB, 0xCC, 0xCD, 0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB],
-      mediakeys:["CONSUMER_POWER", "CONSUMER_SLEEP", "MEDIA_RECORD", "MEDIA_FAST_FORWARD", "MEDIA_REWIND", "MEDIA_NEXT", "MEDIA_PREVIOUS", "MEDIA_STOP", "MEDIA_PLAY_PAUSE", "MEDIA_PAUSE", "MEDIA_VOLUME_MUTE", "MEDIA_VOLUME_UP", "MEDIA_VOLUME_DOWN","CONSUMER_BRIGHTNESS_UP","CONSUMER_BRIGHTNESS_DOWN","CONSUMER_SCREENSAVER","CONSUMER_PROGRAMMABLE_BUTTON_CONFIGURATION","CONSUMER_CONTROL_CONFIGURATION","CONSUMER_EMAIL_READER","CONSUMER_CALCULATOR","CONSUMER_EXPLORER","CONSUMER_BROWSER_HOME","CONSUMER_BROWSER_BACK","CONSUMER_BROWSER_FORWARD","CONSUMER_BROWSER_REFRESH","CONSUMER_BROWSER_BOOKMARKS"],
-      mediakeyvalues:[0x30, 0x32, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7, 0xCD, 0xB0, 0xE2, 0xE9, 0xEA ,0x06F, 0x70F, 0x19e, 0x182, 0x183,0x18A,0x192,0x194,0x223,0x224,0x225,0x227,0x22A],
-      key1mediaselectvalue: '',
-      key1funcoptions: [],
-      key1funcselectvalue: '',
-      key1mediaoptions: [],
-      key2funcoptions: [],
-      key2funcselectvalue: '',
-      key2mediaoptions: [],
-      key2mediaselectvalue: '',
-      key3mediaselectvalue: '',
-      key3funcoptions: [],
-      key3funcselectvalue: '',
-      key3mediaoptions: [],
-      key1labelshow:false,
-      key2labelshow:false,
-      key3labelshow:false,
+      key1:0xff,
+      key2:0xff,
+      key3:0xff,
+      key1func:0xff,
+      key2func:0xff,
+      key3func:0xff,
+      key1f:0xff,
+      key2f:0xff,
+      key3f:0xff,
+      key1str:'',
+      key2str:'',
+      key3str:'',
+      key1mix:[0xff,0xff,0xff,0xff,0xff],
+      key2mix:[0xff,0xff,0xff,0xff,0xff],
+      key3mix:[0xff,0xff,0xff,0xff,0xff],
+      keyall:0xff,
+      keyallfunc:0xff,
+      keyallf:0xff,
+      keyallstr:'',
+      keyallmix:[0xff,0xff,0xff,0xff,0xff],
+      keyallmode:0xff
     }
   }
 }
@@ -862,6 +478,7 @@ class LineBreakTransformer {
     transform(chunk, controller) {
         // 将新块追加到现有块。
         this.container += chunk;
+        // console.log(this.container);
         if(this.container=="1"){
           this.container="";
           controller.enqueue("1");          
@@ -886,10 +503,21 @@ class LineBreakTransformer {
   font-family: Helvetica, sans-serif;
   text-align: center;
 }
+.change-language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .el-row {
     margin-bottom: 20px;
   }
 img {
     width: 500px;
+}
+.light {
+  color: #409EFF;
+}
+.normal {
+  color: black;
 }
 </style>
