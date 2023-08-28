@@ -9,7 +9,7 @@ CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信
 
 你可以直接打板制作，使用沁恒(CH552厂家)的WCHISPStudio工具烧录threekey.ino.hex即可 烧录教程https://topyuan.top/3key/howtoupdate
 
-可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键。 3key-web目录为web改键源码 使用Vue + Element UI开发
+可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键 （备用地址https://yuan910715.github.io/3key）。 3key-web目录为web改键源码 使用Vue + Element UI开发
 
 部分精简版Win7需要装驱动 请自行搜索win7万能键盘驱动、win7 CDC驱动安装  万能键盘驱动用于识别键盘 CDC用于连接改键页
 
