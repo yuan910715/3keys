@@ -77,7 +77,7 @@ export default {
         move:'移动距离',
         strong:'力度',
         mouses:['左键点击','中键点击','右键点击','随机移动位置','向上移动','向下移动','向左移动','向右移动','向上滚轮','向下滚轮'],
-        functionkeys:["左Ctrl", "左Shift", "左Alt", "左Win/Command", "右Ctrl", "右Shift", "右Alt", "右Win/Command", "向上", "向下", "向左", "向右", "Backspace", "Tab", "回车Enter", "ESC", "Insert", "Delete", "Page Up", "Page Down", "Home", "End", "Caps Lock", "Print Screen", "Scroll Lock", "Pause Break", "Num Lock", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24"],
+        functionkeys:["左Ctrl", "左Shift", "左Alt", "左Win/Command", "右Ctrl", "右Shift", "右Alt", "右Win/Command", "向上", "向下", "向左", "向右", "Backspace", "Tab", "回车Enter", "ESC", "Insert", "Delete", "Page Up", "Page Down", "Home", "End", "Caps Lock", "Print Screen", "Scroll Lock", "Pause Break", "Num Lock", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24", "Menu", "/(小键盘)", "*(小键盘)", "-(小键盘)", "+(小键盘)", "Enter(小键盘)", "1(小键盘)", "2(小键盘)", "3(小键盘)", "4(小键盘)", "5(小键盘)", "6(小键盘)", "7(小键盘)", "8(小键盘)", "9(小键盘)", "0(小键盘)", ".(小键盘)"],
         mediakeys:["电源键", "睡眠键", "录制", "快进", "回放", "下一首", "上一首", "停止播放", "播放/暂停", "暂停", "静音", "音量增加", "音量减少","屏幕亮度增加","屏幕亮度减少","屏保","打开音乐软件","打开Email软件","打开计算器","打开文件管理器","打开浏览器","浏览器后退","浏览器前进","浏览器刷新","浏览器书签"]
     }
 }
