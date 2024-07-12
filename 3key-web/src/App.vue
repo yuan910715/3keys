@@ -154,6 +154,25 @@ export default {
             return;
           }
         }
+        if(this.v5version){
+          if(r1.mediaExtraCode==0x01 || r2.mediaExtraCode==0x01 || r3.mediaExtraCode==0x01){
+            this.$confirm(this.$t('index.firmwareErrv5'),  this.$t('index.tip'), {
+                    dangerouslyUseHTMLString: true,
+                    confirmButtonText: this.$t('index.updateHelp'),
+                    cancelButtonText: this.$t('index.updateNo'),
+                    type: 'warning'
+                  }).then(() => {
+                    this.$message({
+                      type: 'success',
+                      message: this.$t('index.redirecting')
+                    });
+                    window.location.href=this.$t('index.howtoaddress');
+                  }).catch(() => {
+                    return;
+                  });
+            return;
+          }
+        }
      }
      if(this.oldversion){
       if(r1.funcCode==0x04 || r1.funcCode==0x05 ||r1.funcCode==0x06 ||r1.funcCode==0x07 ||r1.funcCode==0x08 ||r1.funcCode==0x09 ||
@@ -195,7 +214,7 @@ export default {
       data[105+i]=r2.mixCode[i];
       data[110+i]=r3.mixCode[i];
      }
-    //  console.log(data);
+      //console.log(data);
 		  await this.writer.write(data);
     },
     async sendQuery(){
@@ -234,7 +253,7 @@ export default {
                   });
                   label=0;
                   continue;
-                }else if(value && value!='v3' && value!='v4' && value!='v5'){
+                }else if(value && value!='v3' && value!='v4' && value!='v5' && value!='v6'){
                   await this.disconnectSerial();
                   this.sendLabel=true;
                   this.sendText=this.sendText=this.$t('index.submit');
@@ -262,6 +281,8 @@ export default {
                   return;
                 }else if(value=='v3' || value=='v4'){
                   this.oldversion = true;
+                }else if(value=='v5'){
+                  this.v5version = true;
                 }
                }else if(label==1){
                 this.key1=parseInt(value,16);
@@ -436,6 +457,7 @@ export default {
   },
   data(){
     return{
+      v5version:false,
       oldversion:false,
       keyallmodeshow:false,
       writer:{},

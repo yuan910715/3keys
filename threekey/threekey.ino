@@ -195,7 +195,7 @@ void loop() {
         continue;
       }
       if(label==1 && serialChar==0x03){
-        USBSerial_println("v5");
+        USBSerial_println("v6");
       	USBSerial_println(key1,HEX);
         USBSerial_println(key2,HEX);
         USBSerial_println(key3,HEX);
@@ -472,6 +472,10 @@ void loop() {
               break;}
              Keyboard_write(custStr1[i]);
          }
+         //enter B0
+         if(key1f==0x01){
+          Keyboard_write(0xB0);
+          }
       }
       else if(key1func==0x04){ //mouse click
            if(key1f==0x00){ //single
@@ -593,6 +597,10 @@ void loop() {
               break;}
              Keyboard_write(custStr2[i]);
          }
+         //enter B0
+         if(key2f==0x01){
+          Keyboard_write(0xB0);
+          }
       }
       else if(key2func==0x04){ //mouse click
            if(key2f==0x00){ //single
@@ -715,6 +723,10 @@ void loop() {
               break;}
              Keyboard_write(custStr3[i]);
          }
+         //enter B0
+         if(key3f==0x01){
+          Keyboard_write(0xB0);
+          }
       }
       else if(key3func==0x04){ //mouse click
            if(key3f==0x00){ //single

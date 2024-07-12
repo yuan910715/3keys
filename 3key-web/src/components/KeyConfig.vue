@@ -29,7 +29,8 @@
           </el-option>
         </el-select>
         <el-input style="width:70px" type="text" v-model="text1" maxlength="1" show-word-limit v-if="input1show"></el-input>       
-        <el-input style="width:350px" type="text" v-model="text2" maxlength="30" show-word-limit clearable v-if="input2show"></el-input>      
+        <el-input style="width:350px" type="text" v-model="text2" maxlength="30" show-word-limit clearable v-if="input2show"></el-input>
+        <el-checkbox v-if="input2show" v-model="stringcheck" style="margin-left: 20px;" >{{ stringchecktxt }}</el-checkbox>     
         <div v-if="mouseshow">
         <el-select v-model="mouseselectvalue" :placeholder="$t('keyConfig.select')" v-if="mouseselectshow" style="width:200px" @change="mousecheckchange()">
           <el-option
@@ -183,9 +184,11 @@ export default{
             mouseinputtxt:'',
             mouseshow:false,
             mousechecktxt:'',
+            stringchecktxt:'',
             mouseinputshow:false,
             mousecheckshow:false,
             mousecheck:false,
+            stringcheck:false,
             mouseinput:10,
             mixfuncoptions: [],
             mixfuncselectvalue: ['','','','',''],
@@ -195,7 +198,7 @@ export default{
             mixshowarray:[false,false,false,false,false],
             mouses:this.$t('keyConfig.mouses'),
             functionkeys:this.$t('keyConfig.functionkeys'),
-            functionkeyvalues:[0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0xDA, 0xD9, 0xD8, 0xD7, 0xB2, 0xB3, 0xB0, 0xB1, 0xD1, 0xD4, 0xD3, 0xD6, 0xD2, 0xD5, 0xC1, 0xCE, 0xCF, 0xD0, 0xDB, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xCB, 0xCC, 0xCD, 0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB],
+            functionkeyvalues:[0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0xDA, 0xD9, 0xD8, 0xD7, 0xB2, 0xB3, 0xB0, 0xB1, 0xD1, 0xD4, 0xD3, 0xD6, 0xD2, 0xD5, 0xC1, 0xCE, 0xCF, 0xD0, 0xDB, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xCB, 0xCC, 0xCD, 0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xED, 0xDC, 0xDD, 0xDE, 0xDF, 0xE0, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xEB],
             mediakeys:this.$t('keyConfig.mediakeys'),
             mediakeyvalues:[0x30, 0x32, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7, 0xCD, 0xB0, 0xE2, 0xE9, 0xEA ,0x06F, 0x70, 0x19e, 0x183,0x18A,0x192,0x194,0x223,0x224,0x225,0x227,0x22A],
             tableData: [],
@@ -283,6 +286,7 @@ export default{
           this.mouseinputshow=false,
           this.mousecheckshow=false,
           this.mousecheck=false,
+          this.stringcheck=false,
           this.mouseinput=10,
           this.mixcount=0;
           this.mixfuncoptions=[];
@@ -332,6 +336,11 @@ export default{
                   this.keyradio=5;
                   this.fucChange();
                   this.text2=customstr;
+                  if(keyf==0x00){
+                    this.stringcheck = false;
+                  }else if(keyf==0x01){
+                    this.stringcheck = true;
+                  }
                   break;
                 case 4: //mouse click
                   this.keyradio=6;
@@ -525,6 +534,7 @@ export default{
               result.stringCode[i]=this.text2.charCodeAt(i);
             }
             result.funcCode=0x03;
+            result.mediaExtraCode= this.stringcheck?0x01:0x00;
             break;
          case 6://mouse
               if(this.mouseselectvalue==""){
@@ -643,6 +653,7 @@ export default{
           this.mixshow = false;
           this.mouseselectshow = false;
           this.mouseshow=false;
+          this.stringchecktxt=this.$t('keyConfig.stringEnter')
           break;
         case 6://mouse
           this.input1show = false;

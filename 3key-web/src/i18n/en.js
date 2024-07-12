@@ -28,6 +28,7 @@ export default {
         submit:'Submit',
         browserErr:'Please use Chrome or Edge browser version 103 or above to access this page via https!',
         firmwareErr:'The currently connected 3-key keyboard is not the latest firmware and does not support mouse settings, please update!!<br/><br/>New version:<br/>5.0 Added mouse<br/>4.1 fix bugs<br/>4.0 Added a combination of up to 5 keys, press three keys at the same time to one new key<br/>',
+        firmwareErrv5:'The currently connected 3-key keyboard is not the latest firmware and does not support press enter after string input settings, please update!!<br/><br/>New version:<br/>6.0 Added press enter after string input<br/>',
         tip:'Notice',
         updateHelp:'Update tutorial',
         updateNo:'Not updated yet, return',
@@ -74,10 +75,11 @@ export default {
         mixAdd:'Please add function keys or common keys',
         mixMax5:'All the above key combinations, support up to 5 keys',
         holdTip:'Trigger continuously when long press',
+        stringEnter:'Press enter after input',
         move:'Moving distance',
         strong:'Intensity',
         mouses:['Left Click','Middle Click','Right Click','Random Move','Move Up','Move Down','Move Left','Move Right','Scroll Wheel Up','Scroll Wheel Down'],
-        functionkeys:["Left Ctrl", "Left Shift", "Left Alt", "Left Win/Command", "Right Ctrl", "Right Shift", "Right Alt", "Right Win/Command", "Up", "Down", "Left", "Right", "Backspace", "Tab", "Enter", "ESC", "Insert", "Delete", "Page Up", "Page Down", "Home", "End", "Caps Lock", "Print Screen", "Scroll Lock", "Pause Break", "Num Lock", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24", "PS"],
+        functionkeys:["Left Ctrl", "Left Shift", "Left Alt", "Left Win/Command", "Right Ctrl", "Right Shift", "Right Alt", "Right Win/Command", "Up", "Down", "Left", "Right", "Backspace", "Tab", "Enter", "ESC", "Insert", "Delete", "Page Up", "Page Down", "Home", "End", "Caps Lock", "Print Screen", "Scroll Lock", "Pause Break", "Num Lock", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24", "Menu", "/(num pad)", "*(num pad)", "-(num pad)", "+(num pad)", "Enter(num pad)", "1(num pad)", "2(num pad)", "3(num pad)", "4(num pad)", "5(num pad)", "6(num pad)", "7(num pad)", "8(num pad)", "9(num pad)", "0(num pad)", ".(num pad)"],
         mediakeys:["Power", "Sleep", "Record", "Fast Forward", "Rewind", "Next", "Previous", "Stop", "Play/Pause", "Pause", "Volume Mute", "Volume Up", "Volume Down","Brightness Up","Brightness Down","Screen Saver","Open Music","Open Email","Open Calculator","Open Explorer","Open Browser","Browser Back","Browser forward","Browser Refresh","Browser bookmarks"]
     }
 }
