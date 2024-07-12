@@ -52,7 +52,8 @@
         <img src="./assets/key2.png">
       </el-row>
       <el-row>
-        <p>{{ $t('index.changeLog3') }} <a :href="$t('index.howtoaddress')" target="_blank">{{ $t('index.changeLog1_1') }}</a></p>
+        <p>{{ $t('index.changeLog4') }} <a :href="$t('index.howtoaddress')" target="_blank">{{ $t('index.changeLog1_1') }}</a></p>
+        <p>{{ $t('index.changeLog3') }}</p>
         <p>{{ $t('index.changeLog1') }}</p>
         <p>{{ $t('index.changeLog2') }}</p>
       </el-row>

@@ -15,6 +15,7 @@ export default {
         keyAllLabel:'When the 3 keys are pressed at the same time, they act as an independent keys',
         keyAllTrue:'On',
         keyAllFalse:'Off',
+        changeLog4:'2024.7.12 Updated to threekey_v6.0.hex Added press enter after string input',
         changeLog3:'2023.6.16 Updated to threekey_v5.1.hex fix key2 string mode bug and some settings cannot saved bug',
         changeLog1:'2023.5.4 Updated to threekey_v5.0.hex, add setting it as a mouse',
         changeLog1_1:'How to update',

@@ -15,6 +15,7 @@ export default {
         keyAllLabel:'3键同时按下时,作为独立按键',
         keyAllTrue:'开',
         keyAllFalse:'关',
+        changeLog4:'2024.7.12 软件更新为threekey_v6.0.hex 新增输入字符串后回车换行设置',
         changeLog3:'2023.6.16 软件更新为threekey_v5.1.hex 修复key2字符串模式记忆bug 修复三键按下部分设置不能记忆',
         changeLog1:'2023.5.4 软件更新为threekey_v5.0.hex 新增设置为鼠标功能',
         changeLog1_1:'如何更新',
