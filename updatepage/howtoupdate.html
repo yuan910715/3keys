@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>如何更新</title>
+		<script type="text/javascript" src="https://js.users.51.la/21660765.js"></script>
+</head>
+	<body>
+		<h2>1.下载刷写工具</h2>
+		<p>
+		在<a href='https://www.wch.cn/downloads/WCHISPTool_Setup_exe.html'>https://www.wch.cn/downloads/WCHISPTool_Setup_exe.html</a>
+		下载WCHISPStudio工具 此工具为CH552G芯片厂商沁恒官方烧录工具(仅有windows版本)
+		</p>
+		<h2>2.刷写最新键盘固件</h2>
+		<p>最新固件: threekey_v6.0.hex <a href='threekey_v6.0.hex' download='threekey_v6.0.hex'>点击下载</a></p>
+		<p>
+			打开WCHISPStudio 按下图设置<br/>
+			<img src='how.jpg' width='750px'/>
+		</p>
+		<p>
+			将USB线插入键盘, 电脑端不插入, 使用金属物品(镊子 回形针等) 连接如下两个焊点, 保持连接状态的同时 将USB线插入电脑<br/>
+			<img src='how2.jpg' width='750px'/><br/>
+			WCHISPStudio右侧出现如下信息 表明已刷入程序 重新插拔一次USB线 键盘即可正常使用<br/>
+			默认按键 key1: ctrl+c  key2:按键a  key3:ctrl+v  三键同时按下:win+l
+			<br/>
+			<img src='how3.jpg' width='750px'/><br/>
+			若未出现任何信息 请重试 (两个焊点较小 可能需多次操作才能保证插入USB时 键盘仍保持两个焊点连接状态)
+		</p>
+	</body>
+</html>
