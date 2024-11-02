@@ -176,7 +176,7 @@ export default {
           }
         }
         if(!this.v7version){          
-          if( (r1.funcCode==0x04&&r1.mediaExtraCode==0x02) || (r2.funcCode==0x04&&r2.mediaExtraCode==0x02) || (r3.funcCode==0x04&&r3.mediaExtraCode==0x02) || (keyall.funcCode==0x04&&this.keyall.mediaExtraCode==0x02) ){
+          if( (r1.funcCode==0x04&&r1.mediaExtraCode==0x02) || (r2.funcCode==0x04&&r2.mediaExtraCode==0x02) || (r3.funcCode==0x04&&r3.mediaExtraCode==0x02) || (rall.funcCode==0x04&&this.rall.mediaExtraCode==0x02) ){
             this.$confirm(this.$t('index.firmwareErrv6'),  this.$t('index.tip'), {
                     dangerouslyUseHTMLString: true,
                     confirmButtonText: this.$t('index.updateHelp'),
