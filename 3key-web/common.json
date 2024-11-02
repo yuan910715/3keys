@@ -1,6 +1,7 @@
 [
     {"mixkeys":["0x80","0x63"],"description_zh":"复制,CV工程师必备","description_en":"Copy, a must for CV engineers"},
     {"mixkeys":["0x80","0x76"],"description_zh":"粘贴,CV工程师必备","description_en":"Paste, a must for CV engineers"},
+    {"mixkeys":["0x83","0x76"],"description_zh":"Windows粘贴,CV工程师必备","description_en":"Windows paste, a must for CV engineers"},
     {"mixkeys":["0x83","0x6C"],"description_zh":"锁屏,下班走人!!","description_en":"Lock screen, go home!!"},
     {"mixkeys":["0x80","0x83","0x71"],"description_zh":"Mac锁屏,下班走人!!","description_en":"Lock screen for MacOS, go home!!"},
     {"mixkeys":["0x83","0x63"],"description_zh":"Mac复制,用苹果的CV工程师必备","description_en":"Copy for MacOS, a must for CV engineers"},
