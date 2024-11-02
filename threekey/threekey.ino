@@ -195,7 +195,7 @@ void loop() {
         continue;
       }
       if(label==1 && serialChar==0x03){
-        USBSerial_println("v6");
+        USBSerial_println("v7");
       	USBSerial_println(key1,HEX);
         USBSerial_println(key2,HEX);
         USBSerial_println(key3,HEX);
@@ -348,7 +348,10 @@ void loop() {
                  break;
                  }
               } 
+           }else if(keyallf==0x02){ //press
+              Mouse_press(keyall);
            }
+           
         }else if(keyallfunc==0x05){ //mouse move random
          //mouse move random hold
             while(true){
@@ -438,6 +441,9 @@ void loop() {
               Keyboard_release(keyallmix[i]);
               }
           }
+        }
+        else if(keyallfunc==0x04&&keyallf==0x02){ //mouse     
+          Mouse_release(keyall);
         }        
       three_lock = false;
       }
@@ -486,6 +492,8 @@ void loop() {
               if(digitalRead(BUTTON1_PIN)){
                  break;}
               } 
+           }else if(key1f==0x02){ //press
+              Mouse_press(key1);
            }
       }
       else if(key1func==0x05){ //mouse move random
@@ -567,6 +575,9 @@ void loop() {
             Keyboard_release(key1mix[i]);
             }
         }
+      }
+      else if(key1func==0x04&&key1f==0x02){ //mouse     
+          Mouse_release(key1);
       }    
     }
   }
@@ -611,6 +622,9 @@ void loop() {
               if(digitalRead(BUTTON2_PIN)){
                  break;}
               } 
+           }
+           else if(key2f==0x02){ //press
+              Mouse_press(key2);
            }
       }
       else if(key2func==0x05){ //mouse move random
@@ -692,6 +706,9 @@ void loop() {
             Keyboard_release(key2mix[i]);
             }
         }
+      }
+      else if(key2func==0x04&&key2f==0x02){ //mouse     
+          Mouse_release(key2);
       }    
     }
   }
@@ -737,6 +754,8 @@ void loop() {
               if(digitalRead(BUTTON3_PIN)){
                  break;}
               } 
+           }else if(key3f==0x02){ //press
+              Mouse_press(key3);
            }
       }
       else if(key3func==0x05){ //mouse move random
@@ -818,7 +837,10 @@ void loop() {
             Keyboard_release(key3mix[i]);
             }
         }
-      }    
+      }
+      else if(key3func==0x04&&key3f==0x02){ //mouse     
+          Mouse_release(key3);
+      }
     }
   }
  }

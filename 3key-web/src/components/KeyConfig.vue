@@ -43,7 +43,8 @@
         <label style="margin-left: 20px;">{{ mouseinputtxt }}</label>
         <el-input-number v-if="mouseinputshow" v-model="mouseinput" :step="1" :min=1 :max=120></el-input-number>
         <el-input-number v-if="mousescroolshow" v-model="mousescrool" :step="1" :min=1 :max=5></el-input-number>
-        <el-checkbox v-if="mousecheckshow" v-model="mousecheck" style="margin-left: 20px;" >{{ mousechecktxt }}</el-checkbox>
+        <el-checkbox v-if="mousecheckshow" v-model="mousecheck" @change="mousecheckpress1()" style="margin-left: 20px;" >{{ mousechecktxt }}</el-checkbox>
+        <el-checkbox v-if="mousepresscheckshow" v-model="mousepresscheck" @change="mousecheckpress2()" style="margin-left: 20px;" >{{ mousepresschecktxt }}</el-checkbox>
         </div>
       </el-row>
       <div v-if="mixshow">
@@ -184,10 +185,13 @@ export default{
             mouseinputtxt:'',
             mouseshow:false,
             mousechecktxt:'',
+            mousepresschecktxt:'',
             stringchecktxt:'',
             mouseinputshow:false,
             mousecheckshow:false,
+            mousepresscheckshow:false,
             mousecheck:false,
+            mousepresscheck:false,
             stringcheck:false,
             mouseinput:10,
             mixfuncoptions: [],
@@ -283,9 +287,12 @@ export default{
           this.mouseinputtxt='',
           this.mouseshow=false,
           this.mousechecktxt='',
+          this.mousepresschecktxt='',
           this.mouseinputshow=false,
           this.mousecheckshow=false,
+          this.mousepresscheckshow=false,
           this.mousecheck=false,
+          this.mousepresscheck=false,
           this.stringcheck=false,
           this.mouseinput=10,
           this.mixcount=0;
@@ -348,6 +355,8 @@ export default{
                     this.mousecheck = false;
                   }else if(keyf==0x01){
                     this.mousecheck = true;
+                  }else if(keyf==0x02){
+                    this.mousepresscheck = true;
                   }
                   if(key==0x01){
                     this.mouseselectvalue=1;
@@ -543,6 +552,9 @@ export default{
               }
               if(this.mouseselectvalue==1 || this.mouseselectvalue==2 || this.mouseselectvalue==3 ){ //click
                   result.mediaExtraCode= this.mousecheck?0x01:0x00;
+                  if(this.mousepresscheck){
+                    result.mediaExtraCode=0x02;
+                  }
                   if(this.mouseselectvalue==1){//left
                     result.keyCode=0x01;
                     result.funcCode=0x04; 
@@ -744,13 +756,17 @@ export default{
       }
     }, mousecheckchange(){
       this.mousecheckshow = false;
+      this.mousepresscheckshow = false;
       this.mouseinputshow = false;
       this.mousescroolshow = false;
       this.mousechecktxt="";
+      this.mousepresschecktxt="";
       this.mouseinputtxt="";
         if(this.mouseselectvalue==1 || this.mouseselectvalue==2 || this.mouseselectvalue==3 ){ //click
           this.mousecheckshow = true;
           this.mousechecktxt = this.$t('keyConfig.holdTip');
+          this.mousepresscheckshow = true;
+          this.mousepresschecktxt = this.$t('keyConfig.holdPressTip');
         }else  if(this.mouseselectvalue==5 || this.mouseselectvalue==6 || this.mouseselectvalue==7 || this.mouseselectvalue==8 ){ //move
           this.mousecheckshow = true;
           this.mouseinputshow = true;
@@ -762,6 +778,16 @@ export default{
           this.mousechecktxt = this.$t('keyConfig.holdTip');
           this.mouseinputtxt = this.$t('keyConfig.strong');
         }
+    },
+    mousecheckpress1(){
+      if(this.mousecheck){
+        this.mousepresscheck=false;
+      }
+    },
+    mousecheckpress2(){
+      if(this.mousepresscheck){
+        this.mousecheck=false;
+      }
     },
     refreshText(){
       this.mouses=this.$t('keyConfig.mouses');
