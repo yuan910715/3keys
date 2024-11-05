@@ -323,14 +323,18 @@ uint8_t Keyboard_write(__data uint8_t c){
 
 uint8_t Mouse_press(__data uint8_t k) {
     HIDMouse[0] |= k;
-
+    HIDMouse[1] = 0;
+		HIDMouse[2] = 0;
+    HIDMouse[3] = 0;
     USB_EP3_send(3);
     return 1;
 }
 
 uint8_t Mouse_release(__data uint8_t k) {
     HIDMouse[0] &= ~k;
-   
+    HIDMouse[1] = 0;
+		HIDMouse[2] = 0;
+    HIDMouse[3] = 0;
     USB_EP3_send(3);
     return 1;
 }
