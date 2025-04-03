@@ -15,9 +15,15 @@ CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信
 
 ![web](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/web.jpg)
 
-ch552g目录下为 键盘程序源码。开发环境参考https://github.com/DeqingSun/ch55xduino 感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/112
+threekey目录下为 键盘程序源码。开发环境参考https://github.com/DeqingSun/ch55xduino 感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/112
+
+`ch55xduino( CH55x Boards) 请使用0.0.16版本 高版本会报错 ASlink-Error-Insufficient ROM/EPROM/FLASH memory.`
 
 ~~WindowsFormsApp1目录为改键程序源码。使用visual studio .net framework 4.0开发~~  windows改键程序已废弃 请使用web改键
+
+3key-web目录下为web改键源码，3key-web.rar为webpack打包后的最终静态资源
+
+`如果你想本地使用，可用chrome直接打开3key-web.rar中的index.html`
 
 ![0](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/0.jpg)
 
@@ -26,10 +32,6 @@ ch552g目录下为 键盘程序源码。开发环境参考https://github.com/Deq
 特点
 - 可自定义按键，有改键程序，可以是普通按键 功能按键 多媒体按键 组合键 输入字符串 模拟鼠标
 - 每个键位的设置可以记忆在硬件内 换机器也可正常使用
-
-## 注意
-
-ch55xduino( CH55x Boards) 请使用0.0.16版本 高版本会报错 ASlink-Error-Insufficient ROM/EPROM/FLASH memory.
 
 ## 2024.11.2 软件更新为threekey_v7.0.hex 新增长按时按住鼠标设置
 
