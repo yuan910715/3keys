@@ -11,7 +11,7 @@ CH552内置了ADC 模数转换、触摸按键电容检测、3 组定时器和信
 
 可以使用Chrome浏览器直接访问https://topyuan.top/3key 进行改键 （备用地址 https://yuan910715.github.io/3key ） 3key-web目录为web改键源码 使用Vue + Element UI开发
 
-部分精简版Win7需要装驱动 请自行搜索win7万能键盘驱动、win7 CDC驱动安装  万能键盘驱动用于识别键盘 CDC用于连接改键页
+`部分精简版Win7需要装驱动 请自行搜索win7万能键盘驱动、win7 CDC驱动安装  万能键盘驱动用于识别键盘 CDC用于连接改键页`
 
 ![web](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/web.jpg)
 
@@ -27,6 +27,10 @@ ch552g目录下为 键盘程序源码。开发环境参考https://github.com/Deq
 - 可自定义按键，有改键程序，可以是普通按键 功能按键 多媒体按键 组合键 输入字符串 模拟鼠标
 - 每个键位的设置可以记忆在硬件内 换机器也可正常使用
 
+## 注意
+
+ch55xduino( CH55x Boards) 请使用0.0.16版本 高版本会报错 ASlink-Error-Insufficient ROM/EPROM/FLASH memory.
+
 ## 2024.11.2 软件更新为threekey_v7.0.hex 新增长按时按住鼠标设置
 
 ## 2024.7.12 软件更新为threekey_v6.0.hex 新增输入字符串后按回车换行设置
@@ -38,6 +42,8 @@ ch552g目录下为 键盘程序源码。开发环境参考https://github.com/Deq
 ## 2023.4.25 软件更新为threekey_v4.1.hex 修复了windows在刚连接键盘就立刻按键的情形 按键失效问题  感谢DeqingSun的指导https://github.com/DeqingSun/ch55xduino/issues/132
 
 ## 2023.3.27 软件更新为threekey_v4.hex 修改组合键逻辑 最多支持5键组合 新增三键同时按下逻辑 web改键已同步更新，windows改键程序已废弃，若在无外网环境无法访问web改键 可本地chrome浏览器打开3key-web里的index.html修改按键 程序也有所更新 以下代码解析非最新代码 请自行比对代码
+
+`以下解析未更新为最新代码，仅做原理解析`
 
 代码解析： threekey.ino中 ,
 
@@ -250,6 +256,8 @@ bool button1Press = !digitalRead(BUTTON1_PIN);
 
 改键程序： 已废弃
 
+`请使用web改键`
+
 ![gaijian2](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/gaijian2.png)
 
 改键程序代码不再详细解析, 原理为串口和键盘通讯 发送0x02 0x03查询键位值 , 发送
@@ -279,7 +287,6 @@ __code uint16_t Prod_Des[]={                                //Produce String Des
 
 硬件开源地址
 https://oshwhub.com/inramento/3jian-CVxiao-jian-pan
-
 
 原理图： 非最新 最新增加了两个cc 5.1k电阻用于识别c to c线 请在开源广场自行查看
 ![yuanlitu](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/yuanlitu.png)
@@ -323,5 +330,4 @@ pcb5：
 ![6](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/6.jpg)
 
 ![0](https://raw.githubusercontent.com/yuan910715/3keys/main/pics/0.jpg)
-
 
